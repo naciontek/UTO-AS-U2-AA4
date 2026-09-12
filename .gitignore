@@ -1,4 +1,8 @@
 __pycache__/
 *.pyc
+*.pyo
+
+# Archivos que genera la ejecución, no deben versionarse
 resultados/outbox_*.jsonl
 resultados/bus_eventos.jsonl
+resultados/*.log

@@ -127,6 +127,12 @@ class Coordinador:
             return self._on_compensar(mensaje)
         if tipo == "ESTADO":
             return self._on_estado()
+        if tipo == "CERRAR":
+            # Dispara el cierre del sorteo desde fuera del coordinador. Es el
+            # mensaje que permite demostrar en vivo el Observer distribuido y
+            # el corte temporal exacto (RD-F10, RD-F11).
+            self.cerrar_sorteo()
+            return {"resultado": "OK", "sello_cierre": self._sello_cierre}
         return {"resultado": "ERROR", "detalle": f"tipo de mensaje desconocido: {tipo}"}
 
     def _on_registro(self, mensaje: dict) -> dict:
