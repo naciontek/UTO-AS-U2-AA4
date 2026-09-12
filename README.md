@@ -14,6 +14,52 @@ liquida los premios de forma asíncrona.
 
 ---
 
+## Ruta rápida para el evaluador
+
+Si solo quieres comprobar que el prototipo funciona y ver los patrones en
+acción, con esto basta. Toma unos diez minutos y no hay que instalar nada más
+que Python.
+
+**1.** Descarga el repositorio y descomprímelo en cualquier carpeta.
+
+**2.** Doble clic en `1_Levantar_red.bat`. Se abre una ventana con la red
+encendida. **Déjala abierta hasta el final.** Debe aparecer algo así:
+
+```
+[monitor] escuchando métricas en 127.0.0.1:9300
+[bus] escuchando en 127.0.0.1:9200
+[coordinador] escuchando en 127.0.0.1:9000
+[nodo-1] escuchando en 127.0.0.1:9101 con 8 hilos
+[coordinador] nodo registrado: nodo-1
+```
+
+**3.** Doble clic en `2_Prueba_de_carga.bat`. Manda 5000 apuestas con 100 hilos
+y al terminar imprime el rendimiento. Lo que hay que ver es que las
+**confirmadas sean 5000 y las perdidas 0**.
+
+**4.** Doble clic en `3_Demo_particion_de_red.bat`. Esta es la prueba que de
+verdad importa. El script te va guiando con pausas y en el camino te pide
+ejecutar `4_Matar_coordinador.bat` y después `5_Reiniciar_coordinador.bat`.
+Lo que se demuestra es lo siguiente:
+
+| Momento de la demo | Qué debe pasar |
+|---|---|
+| Coordinador vivo | Las 300 apuestas se confirman de inmediato. |
+| Coordinador caído | Las 400 apuestas **se aceptan igual**, y quedan guardadas en la bitácora local del nodo. Ninguna se pierde ni se rechaza. |
+| Coordinador de vuelta | El nodo se vuelve a registrar solo y reenvía lo acumulado. La bitácora queda en **0 registros** y el coordinador reporta las apuestas **sin duplicados**. |
+
+Eso último es la evidencia del requisito RD-NF06, que pedía cero pérdidas y
+cero duplicados después de una partición de red.
+
+**5.** Cuando termines, vuelve a la ventana de `1_Levantar_red.bat` y presiona
+`Ctrl+C`. Eso detiene toda la red de forma ordenada.
+
+Si no estás en Windows, o si prefieres ver los comandos por dentro, las
+secciones 3 y 4 traen lo mismo paso a paso. Y si algo falla, la sección 8 tiene
+la lista de errores típicos con su causa.
+
+---
+
 ## 1. Qué se necesita
 
 Solo **Python 3.11 o superior**. El prototipo usa únicamente la biblioteca
@@ -34,9 +80,6 @@ Si el comando no se reconoce, prueba con `py --version`. En ese caso, sustituye
 ---
 
 ## 2. Ejecución rápida en Windows (recomendada)
-
-En la raíz del proyecto hay tres archivos `.bat`. Se ejecutan con doble clic, en
-este orden, y cada uno explica en pantalla lo que va a hacer antes de empezar.
 
 En la raíz del proyecto hay cinco archivos `.bat`. Se ejecutan con doble clic y
 cada uno explica en pantalla lo que va a hacer antes de empezar.
@@ -137,8 +180,8 @@ En macOS o Linux:
 pkill -f rdpv.coordinador
 ```
 
-> No uses `Ctrl+C` en la ventana del paso 3, ya que eso detiene la red completa
-> y no solo el coordinador.
+> No uses `Ctrl+C` en la ventana donde levantaste la red, ya que eso detiene
+> todos los procesos y no solo el coordinador.
 
 **Paso 3.** Envía 400 apuestas más, ahora con el coordinador caído:
 
@@ -275,6 +318,6 @@ UTO-AS-U2-AA4/
 |---|---|
 | `No module named 'pruebas'` o `'rdpv'` | La terminal no está en la carpeta del proyecto. Ubícate en la carpeta que contiene `levantar.py`. |
 | `python no se reconoce...` | Python no está en el PATH. Usa `py` en lugar de `python`. |
-| `TimeoutError` o `ConnectionRefusedError` al generar carga | La red no está levantada, o el coordinador está caído. Revisa la ventana del paso 1. |
+| `TimeoutError` o `ConnectionRefusedError` al generar carga | La red no está levantada, o el coordinador está caído. Revisa la ventana donde levantaste la red. |
 | `Address already in use` | Quedaron procesos de una ejecución anterior. Ciérralos y vuelve a levantar la red. |
 | La bitácora de salida no se vacía | El coordinador no volvió a arrancar. La sincronización se reintenta cada segundo, así que se vacía sola en cuanto responda. |
