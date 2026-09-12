@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+resultados/outbox_*.jsonl
+resultados/bus_eventos.jsonl

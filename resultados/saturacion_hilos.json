@@ -1,0 +1,93 @@
+[
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 3.7878523589999986,
+    "throughput_por_s": 792.0055259999644,
+    "latencia_promedio_ms": 181.4630397116666,
+    "latencia_p95_ms": 213.31629099995553,
+    "latencia_max_ms": 243.26500300003318,
+    "hilos_nodo": 1
+  },
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 3.6634216610000294,
+    "throughput_por_s": 818.9065517456894,
+    "latencia_promedio_ms": 172.57614162966587,
+    "latencia_p95_ms": 213.76117399995564,
+    "latencia_max_ms": 223.8445479999882,
+    "hilos_nodo": 2
+  },
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 3.1130492589998084,
+    "throughput_por_s": 963.6853613308612,
+    "latencia_promedio_ms": 141.6639122856668,
+    "latencia_p95_ms": 167.80219599991142,
+    "latencia_max_ms": 183.5804930001359,
+    "hilos_nodo": 4
+  },
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 2.7953323420001652,
+    "throughput_por_s": 1073.2176474777905,
+    "latencia_promedio_ms": 123.94208380299746,
+    "latencia_p95_ms": 157.6519959999132,
+    "latencia_max_ms": 170.64698599983785,
+    "hilos_nodo": 8
+  },
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 2.3233378259999427,
+    "throughput_por_s": 1291.2457096973526,
+    "latencia_promedio_ms": 99.98231444033173,
+    "latencia_p95_ms": 118.39989300005982,
+    "latencia_max_ms": 200.34924800006593,
+    "hilos_nodo": 16
+  },
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 2.19302437500005,
+    "throughput_por_s": 1367.9738511798034,
+    "latencia_promedio_ms": 103.55484725933464,
+    "latencia_p95_ms": 126.48521500000243,
+    "latencia_max_ms": 212.89770399994268,
+    "hilos_nodo": 32
+  },
+  {
+    "total_apuestas": 3000,
+    "nodos": 1,
+    "hilos_cliente": 150,
+    "exitosas": 3000,
+    "fallidas": 0,
+    "duracion_total_s": 2.286785203000136,
+    "throughput_por_s": 1311.8853471957775,
+    "latencia_promedio_ms": 103.81920762266596,
+    "latencia_p95_ms": 142.4825569999939,
+    "latencia_max_ms": 229.4039480000265,
+    "hilos_nodo": 64
+  }
+]

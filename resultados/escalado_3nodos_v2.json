@@ -1,0 +1,12 @@
+{
+  "total_apuestas": 5000,
+  "nodos": 3,
+  "hilos_cliente": 100,
+  "exitosas": 5000,
+  "fallidas": 0,
+  "duracion_total_s": 3.2228489939998326,
+  "throughput_por_s": 1551.422362421818,
+  "latencia_promedio_ms": 62.592825659397626,
+  "latencia_p95_ms": 80.77241799992407,
+  "latencia_max_ms": 106.99841500013463
+}
