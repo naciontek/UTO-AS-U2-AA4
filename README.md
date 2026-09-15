@@ -3,18 +3,17 @@
 Prototipo de la **Actividad 4 de la Unidad 2** del curso Arquitectura de Software
 (Corporación Escuela Tecnológica del Oriente). Continúa el caso del operador de
 juegos de suerte y azar GANA que se trabajó en la Unidad 1, y demuestra en
-funcionamiento los patrones de diseño distribuidos que el informe justifica.
+funcionamiento distintos patrones de diseño distribuidos.
 
 El sistema simula una red de puntos de venta que registra apuestas de forma
 concurrente, sigue vendiendo cuando se cae la conexión con el nodo central y
 liquida los premios de forma asíncrona.
 
 **Autor:** Esteban Sánchez Viana
-**Informe completo:** `docs/Informe.pdf`
 
 ---
 
-## Ruta rápida para el evaluador
+## Guía de ejecución rápida
 
 Si solo quieres comprobar que el prototipo funciona y ver los patrones en
 acción, con esto basta. Toma unos diez minutos y no hay que instalar nada más
@@ -75,7 +74,7 @@ Si el comando no se reconoce, prueba con `py --version`. En ese caso, sustituye
 `python` por `py` en todos los comandos que siguen.
 
 > `matplotlib` solo hace falta si se quieren **regenerar** las gráficas del
-> informe. Las gráficas ya están en `resultados/`, así que no es necesario.
+> proyecto. Las gráficas ya están en `resultados/`, así que no es necesario.
 
 ---
 
@@ -235,15 +234,15 @@ el rechazo lo aplica cada nodo por su cuenta, sin consultar al coordinador.
 
 ---
 
-## 5. Reproducir las mediciones del informe
+## 5. Reproducir las mediciones
 
-| Prueba del informe | Comando |
+| Prueba | Comando |
 |---|---|
-| Escalabilidad horizontal (Tabla 8) | Levantar con `--nodos 1`, luego 2, 3 y 4, y correr el cliente de carga con 5000 apuestas y 100 hilos en cada caso |
-| Punto de saturación de hilos (Tabla 9) | `python -m pruebas.escenario_saturacion` |
-| Partición de red (Tabla 10) | Sección 4 de este documento |
+| Escalabilidad horizontal | Levantar con `--nodos 1`, luego 2, 3 y 4, y correr el cliente de carga con 5000 apuestas y 100 hilos en cada caso |
+| Punto de saturación de hilos | `python -m pruebas.escenario_saturacion` |
+| Partición de red | Sección 4 de este documento |
 
-Las corridas que se usaron en el informe quedaron guardadas en `resultados/`
+Los resultados de las mediciones quedaron guardados en `resultados/`
 como archivos JSON, junto con las gráficas en PNG. Para regenerar las gráficas:
 
 ```
@@ -301,13 +300,9 @@ UTO-AS-U2-AA4/
 │   ├── cliente_carga.py         Generador de carga concurrente
 │   ├── escenario_particion.py   Demo guiada de partición de red
 │   ├── escenario_saturacion.py  Barrido de niveles de concurrencia
-│   ├── generar_graficas.py      Gráficas del informe
-│   └── generar_diagramas.py     Diagramas UML del informe
-├── resultados/                  Corridas en JSON y gráficas en PNG
-└── docs/
-    ├── Informe.pdf              Informe técnico completo
-    ├── 01_Requisitos_Sistema_Distribuido.md
-    └── 02_Plan_de_Proyecto_y_Arquitectura.md
+│   ├── generar_graficas.py      Gráficas de resultados
+│   └── generar_diagramas.py     Diagramas UML del sistema
+└── resultados/                  Corridas en JSON y gráficas en PNG
 ```
 
 ---
